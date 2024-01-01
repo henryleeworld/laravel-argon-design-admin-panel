@@ -84,25 +84,25 @@
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
                             <div class="flex flex-col mb-3">
-                                <input type="text" name="name" class="form-control" placeholder="{{ __('Name') }}" aria-label="{{ __('Name') }}" value="{{ old('name') }}" />
+                                <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" placeholder="{{ __('Name') }}" aria-label="{{ __('Name') }}" value="{{ old('name') }}" required autocomplete="name" autofocus />
                                 @error('name')
                                 <p class="text-danger text-xs pt-1">{{ $message }}</p>
                                 @enderror
                             </div>
                             <div class="flex flex-col mb-3">
-                                <input type="email" name="email" class="form-control" placeholder="{{ __('Email') }}" aria-label="{{ __('Email') }}" value="{{ old('email') }}" />
+                                <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="{{ __('Email') }}" aria-label="{{ __('Email') }}" value="{{ old('email') }}" required autocomplete="email" />
                                 @error('email')
                                 <p class="text-danger text-xs pt-1">{{ $message }}</p>
                                 @enderror
                             </div>
                             <div class="flex flex-col mb-3">
-                                <input type="password" name="password" class="form-control" placeholder="{{ __('Password') }}" aria-label="{{ __('Password') }}" />
+                                <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="{{ __('Password') }}" aria-label="{{ __('Password') }}" required autocomplete="new-password"/>
                                 @error('password')
                                 <p class="text-danger text-xs pt-1">{{ $message }}</p>
                                 @enderror
                             </div>
                             <div class="flex flex-col mb-3">
-                                <input type="password" name="password_confirmation" class="form-control" placeholder="{{ __('Password confirmation') }}" aria-label="{{ __('Password confirmation') }}" />
+                                <input id="password-confirm" type="password" name="password_confirmation" class="form-control" placeholder="{{ __('Password confirmation') }}" aria-label="{{ __('Password confirmation') }}" required autocomplete="new-password"/>
                                 @error('password_confirmation')
                                 <p class="text-danger text-xs pt-1">{{ $message }}</p>
                                 @enderror

@@ -15,7 +15,7 @@
                                 <form role="form" method="POST" action="{{ route('password.email') }}">
                                     @csrf @method('post')
                                     <div class="flex flex-col mb-3">
-                                        <input type="email" name="email" class="form-control form-control-lg" placeholder="{{ __('Email') }}" value="{{ old('email') }}" aria-label="{{ __('Email') }}" />
+                                        <input type="email" name="email" class="form-control form-control-lg @error('email') is-invalid @enderror" placeholder="{{ __('Email') }}" value="{{ old('email') }}" aria-label="{{ __('Email') }}" required autocomplete="email" autofocus/>
                                         @error('email')
                                         <p class="text-danger text-xs pt-1">{{$message}}</p>
                                         @enderror

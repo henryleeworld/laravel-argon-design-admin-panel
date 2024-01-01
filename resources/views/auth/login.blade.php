@@ -16,19 +16,19 @@
                                     @csrf
                                     @method('post')
                                     <div class="flex flex-col mb-3">
-                                        <input type="email" name="email" class="form-control form-control-lg" value="{{ old('email') ?? '' }}" aria-label="{{ __('Email') }}" />
+                                        <input type="email" name="email" class="form-control form-control-lg @error('email') is-invalid @enderror" value="{{ old('email') }}" aria-label="{{ __('Email') }}" required autocomplete="email" autofocus/>
                                         @error('email')
                                         <p class="text-danger text-xs pt-1">{{$message}}</p>
                                         @enderror
                                     </div>
                                     <div class="flex flex-col mb-3">
-                                        <input type="password" name="password" class="form-control form-control-lg" aria-label="{{ __('Password') }}" value="" />
+                                        <input type="password" name="password" class="form-control form-control-lg @error('password') is-invalid @enderror" aria-label="{{ __('Password') }}" required autocomplete="current-password />
                                         @error('password')
                                         <p class="text-danger text-xs pt-1">{{$message}}</p>
                                         @enderror
                                     </div>
                                     <div class="form-check form-switch">
-                                        <input class="form-check-input" name="remember" type="checkbox" id="remember" />
+                                        <input class="form-check-input" name="remember" type="checkbox" id="remember" {{ old('remember') ? 'checked' : '' }}/>
                                         <label class="form-check-label" for="remember">{{ __('Remember me') }}</label>
                                     </div>
                                     <div class="text-center">

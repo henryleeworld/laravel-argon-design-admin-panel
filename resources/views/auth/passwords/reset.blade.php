@@ -16,19 +16,19 @@
                                     @csrf
                                     <input type="hidden" name="token" value="{{ $token }}" />
                                     <div class="flex flex-col mb-3">
-                                        <input type="email" name="email" class="form-control form-control-lg" placeholder="{{ __('Email') }}" value="{{ old('email') }}" aria-label="{{ __('Email') }}" />
+                                        <input id="email" type="email" name="email" class="form-control form-control-lg @error('email') is-invalid @enderror" placeholder="{{ __('Email') }}" value="{{ $email ?? old('email') }}" aria-label="{{ __('Email') }}" required autocomplete="email" autofocus/>
                                         @error('email')
                                         <p class="text-danger text-xs pt-1">{{$message}}</p>
                                         @enderror
                                     </div>
                                     <div class="flex flex-col mb-3">
-                                        <input type="password" name="password" class="form-control form-control-lg" placeholder="{{ __('Password') }}" aria-label="{{ __('Password') }}" />
+                                        <input id="password" type="password" name="password" class="form-control form-control-lg @error('password') is-invalid @enderror" placeholder="{{ __('Password') }}" aria-label="{{ __('Password') }}" required autocomplete="new-password"/>
                                         @error('password')
                                         <p class="text-danger text-xs pt-1">{{$message}}</p>
                                         @enderror
                                     </div>
                                     <div class="flex flex-col mb-3">
-                                        <input type="password" name="password_confirmation" class="form-control form-control-lg" placeholder="{{ __('Password') }}" aria-label="{{ __('Password') }}" />
+                                        <input id="password-confirm" type="password" name="password_confirmation" class="form-control form-control-lg" placeholder="{{ __('Password') }}" aria-label="{{ __('Password') }}" required autocomplete="new-password"/>
                                         @error('confirm-password')
                                         <p class="text-danger text-xs pt-1">{{$message}}</p>
                                         @enderror
