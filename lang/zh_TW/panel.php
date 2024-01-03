@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'site_title' => '實感設計管理面板',
+    'site_title' => '氬氣設計管理面板',
 ];
